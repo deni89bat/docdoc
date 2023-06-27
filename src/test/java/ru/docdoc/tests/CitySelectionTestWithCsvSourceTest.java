@@ -15,6 +15,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.webdriver;
 import static com.codeborne.selenide.WebDriverConditions.url;
 @DisplayName("Проверка выбора города")
+@Tag("smoke")
 public class CitySelectionTestWithCsvSourceTest extends TestBase {
     MainPage mainPage = new MainPage();
     CitySelectModal citySelectModal = new CitySelectModal();
