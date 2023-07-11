@@ -60,7 +60,7 @@ test {
 }
 
 task smoke_test(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags("smoke")
     }
 }

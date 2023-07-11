@@ -11,14 +11,14 @@ import io.qameta.allure.Step;
 
 public class SearchForm {
 
-  private SelenideElement searchForm = $("[data-test-id=search_form]"),
-      searchInput = $("[data-test-id=search_input]"),
-      searchInputActive = $("input[placeholder='Врач, клиника, болезнь, услуга']"),
-      searchSuggestions = $(".SearchSuggestion__text_2_9_"),
-      searchGeoInput = $("[data-test-id=search_geo_input"),
-      searchGeoInputActive = $("input[placeholder='Метро, район, округ, город МО']"),
-      searchSuggestionsGeo = $(".SearchLocationSuggestion__text_2vgG"),
-      searchButton = $("[data-test-id='search_button']");
+  private final SelenideElement searchForm = $("[data-test-id=search_form]");
+  private final SelenideElement searchInput = $("[data-test-id=search_input]");
+  private final SelenideElement searchInputActive = $("input[placeholder='Врач, клиника, болезнь, услуга']");
+  private final SelenideElement searchSuggestions = $(".SearchSuggestion__text_2_9_");
+  private final SelenideElement searchGeoInput = $("[data-test-id=search_geo_input");
+  private final SelenideElement searchGeoInputActive = $("input[placeholder='Метро, район, округ, город МО']");
+  private final SelenideElement searchSuggestionsGeo = $(".SearchLocationSuggestion__text_2vgG");
+  private final SelenideElement searchButton = $("[data-test-id='search_button']");
 
 
   @Step("Отображается форма поиска")
@@ -46,6 +46,11 @@ public class SearchForm {
   @Step("Нажать кнопку Найти.")
   public SearchForm clickSearchButton() {
     searchButton.click();
+    return this;
+  }
+
+  @Step("Проверка, что осуществлён переход на страницу соответствующую запросу ")
+  public SearchForm verifyUrl() {
     webdriver().shouldHave(url("https://docdoc.ru/doctor/epileptolog/city/elektrougli/deti"));
     return this;
   }

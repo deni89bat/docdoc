@@ -4,12 +4,14 @@ HELP.md
 !**/src/test/**
 
 ### IntelliJ IDEA ###
+/.idea/
 .idea
 *.iws
 *.iml
 *.ipr
 
 ### Gradle ###
+/gradle/
 build/
 .gradle
 gradlew
@@ -23,6 +25,7 @@ hooks/
 info/
 objects/
 refs/
-config
 description
 HEAD
+
+

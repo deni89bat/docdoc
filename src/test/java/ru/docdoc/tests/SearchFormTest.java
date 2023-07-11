@@ -22,7 +22,7 @@ public class SearchFormTest extends TestBase {
   SearchForm searchForm = new SearchForm();
 
   @Tag("smoke")
-  @DisplayName("Форма поиска отображается на главной странице.")
+  @DisplayName("Проверка, что форма поиска отображается на главной странице.")
   @Severity(SeverityLevel.CRITICAL)
   @Test
   @Order(1)
@@ -50,7 +50,7 @@ public class SearchFormTest extends TestBase {
   }
 
   @Tag("smoke")
-  @DisplayName("Нажать кнопку Найти. Осуществляется переход к рез-ту поиска.")
+  @DisplayName("Нажать кнопку Найти.")
   @Severity(SeverityLevel.CRITICAL)
   @Test
   @Order(4)
@@ -58,4 +58,12 @@ public class SearchFormTest extends TestBase {
     searchForm.clickSearchButton();
   }
 
+  @Tag("smoke")
+  @DisplayName("Проверка, что осуществлён переход на страницу соответствующую поисковому запросу")
+  @Severity(SeverityLevel.CRITICAL)
+  @Test
+  @Order(5)
+  void verifyUrl() {
+    searchForm.verifyUrl();
+  }
 }

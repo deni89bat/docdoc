@@ -10,12 +10,12 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.Assertions;
 
 public class CookieBanner {
-  private SelenideElement cookieBanner = $("[data-test-id=cookies-banner]"),
-                          closeCookieButton = $("[data-test-id=cookies-banner-button]"),
-                          cookieBannerLink = cookieBanner.find("a");// Находим ссылку внутри баннера;
+
+  private final SelenideElement cookieBanner = $("[data-test-id=cookies-banner]");
+  private final SelenideElement closeCookieButton = $("[data-test-id=cookies-banner-button]");
+  private final SelenideElement cookieBannerLink = cookieBanner.find("a");
 
   @Step("Проверить отображение баннера")
   public CookieBanner checkCookieBannerIsVisible() {
@@ -28,9 +28,9 @@ public class CookieBanner {
   }
 
   @Step("Переход по ссылке с политикой ")
-  public CookieBanner ClickLinkCookieBanner() {
+  public CookieBanner clickLinkCookieBanner() {
     String currentWindowHandle = WebDriverRunner.getWebDriver()
-        .getWindowHandle(); // сохраняем идентификатор текущего окна перед кликом по ссылке
+        .getWindowHandle();
     cookieBannerLink.click();
     switchTo().window(1);
     webdriver().shouldHave(url("https://docdoc.ru/cookies"));
@@ -42,7 +42,7 @@ public class CookieBanner {
   @Step("Закрыть баннер")
   public CookieBanner closeCookieBanner() {
     closeCookieButton.click();
-    cookieBanner.shouldNotBe(Condition.visible); // Проверяем, что баннер больше не отображается
+    cookieBanner.shouldNotBe(Condition.visible);
     return this;
   }
 
