@@ -10,6 +10,7 @@ import ru.docdoc.pages.MainPage;
 import ru.docdoc.pages.components.CitySelectModal;
 
 @DisplayName("Проверка выбора города")
+@Tag("smoke")
 public class CitySelectionTestWithCsvSourceTest extends TestBase {
 
   MainPage mainPage = new MainPage();
